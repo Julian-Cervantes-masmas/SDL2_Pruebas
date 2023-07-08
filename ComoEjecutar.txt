@@ -1,5 +1,5 @@
 Ingresar a la consola Git Bash o CMD desde la carpeta
-~/Desktop/VS_CODE_SDL: mingw32-make -f akeFile
+~/Desktop/VS_CODE_SDL: mingw32-make -f MakeFile
 
 SINO desde VS_CODE funciona ingresar desde terminal
 mingw32-make -f .\MakeFile
