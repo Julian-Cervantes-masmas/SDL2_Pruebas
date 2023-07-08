@@ -77,6 +77,9 @@ void Program::Update()
 {
 
     //Generar movimiento random en el rectangulo blanco
+    /*TODO: Solucionar problema de iteracion infinita, se reinicia el loop generando siempre el mismo moviemiento por ende
+    rectangulo blanco se mueve siempre para la derecha y abajo ya que el numero iterativo es 222222^ por lo cual X +=10 e Y +=10; */
+    
     npc.whiteSquareMovement();
     //Hacer que el rectangulo aparezca por el otro lado:
     if ( blue_x > SCREEN_WIDTH){
