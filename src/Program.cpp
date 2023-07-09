@@ -31,7 +31,6 @@ void Program::ProgramLoop()
     }
 }
 
-
 void Program::HandleEvents()
 {
   /*  Event Handler  */
@@ -41,20 +40,12 @@ void Program::HandleEvents()
       programIsRunning = false;
     }
     else if (event.type == SDL_KEYDOWN){
+      player.playerMovement(event.key.keysym.sym);
       switch(event.key.keysym.sym)
       {
-        case SDLK_UP:
-            blue_y -= 10;
-            break;
-        case SDLK_LEFT:
-            blue_x -= 10;
-            break;
-        case SDLK_RIGHT:
-            blue_x += 10;
-            break;
-        case SDLK_DOWN:
-            blue_y += 10;
-            break;
+        case SDLK_ESCAPE:
+          programIsRunning = false;
+          break;
       }
     }
     else if(event.type == SDL_KEYUP){
@@ -76,10 +67,6 @@ void Program::HandleEvents()
 void Program::Update()
 {
 
-    //Generar movimiento random en el rectangulo blanco
-    /*TODO: Solucionar problema de iteracion infinita, se reinicia el loop generando siempre el mismo moviemiento por ende
-    rectangulo blanco se mueve siempre para la derecha y abajo ya que el numero iterativo es 222222^ por lo cual X +=10 e Y +=10; */
-    
     npc.whiteSquareMovement();
     //Hacer que el rectangulo aparezca por el otro lado:
     if ( blue_x > SCREEN_WIDTH){
@@ -104,20 +91,16 @@ void Program::Draw()
 
   SDL_SetRenderDrawColor(renderer, 50, 50, 255, 255);
 
-    /*      RECTANGULO AZUL       */
-  SDL_Rect pixelRect;
-  pixelRect.x = blue_x;
-  pixelRect.y = blue_y;
-  pixelRect.w = pixelSize; //Tamaño ancho (width)
-  pixelRect.h = pixelSize; //Tamaño alto (height)
-  SDL_RenderFillRect(renderer, &pixelRect); //Dibuja el rectangulo
+    /*      JUGADOR       */
+  player.drawPlayer(renderer);
 
     /*      RECTANGULO BLANCO       */
-  SDL_SetRenderDrawColor(renderer, 250, 255, 255, 255);
+  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
   SDL_Rect whiteRect;
   whiteRect = {npc.getWhite_x(), npc.getWhite_y(), pixelSize, pixelSize};
   SDL_RenderFillRect (renderer, &whiteRect);
 
+  
   SDL_RenderPresent(renderer);
 
 

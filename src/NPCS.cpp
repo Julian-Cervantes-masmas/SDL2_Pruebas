@@ -15,7 +15,7 @@ void NPC::whiteSquareMovement()
     static std::chrono::steady_clock::time_point lastMoveTime = std::chrono::steady_clock::now();
     //Get the currrent time
     std::chrono::steady_clock::time_point currentTime = std::chrono::steady_clock::now();
-    //Calcula el tiempo pasado desde el ultimo movimiento
+    //Calcula el tiempo que paso desde el ultimo movimiento
     std::chrono::milliseconds timeElapsed = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - lastMoveTime);
     if(timeElapsed.count() >= 200){
         lastMoveTime = currentTime;
