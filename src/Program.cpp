@@ -69,17 +69,17 @@ void Program::Update()
 
     npc.whiteSquareMovement();
     //Hacer que el rectangulo aparezca por el otro lado:
-    if ( blue_x > SCREEN_WIDTH){
-        blue_x = 0;
+    if ( player.getPlayer_x() > SCREEN_WIDTH){
+        player.setPlayer_x(0);
     }
-    else if (blue_x < 0){
-        blue_x = SCREEN_WIDTH;
+    else if (player.getPlayer_x() < 0){
+        player.setPlayer_x(SCREEN_WIDTH);
     }
-    else if ( blue_y > SCREEN_HEIGHT){
-        blue_y = 0;
+    else if ( player.getPlayer_y() > SCREEN_HEIGHT){
+       player.setPlayer_y(0);
     }
-    else if (blue_y < 0){
-        blue_y = SCREEN_HEIGHT;
+    else if (player.getPlayer_y() < 0){
+        player.setPlayer_y(SCREEN_HEIGHT);
     }
 
 }
@@ -100,7 +100,7 @@ void Program::Draw()
   whiteRect = {npc.getWhite_x(), npc.getWhite_y(), pixelSize, pixelSize};
   SDL_RenderFillRect (renderer, &whiteRect);
 
-  
+
   SDL_RenderPresent(renderer);
 
 
