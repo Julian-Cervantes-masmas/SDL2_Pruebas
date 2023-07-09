@@ -5,7 +5,7 @@ class NPC
 {
 public:
     void whiteSquareMovement();
-    int NPCposition();
+    short int NPCposition(int randomNum);
 
     //SETTERS AND GETTERS
     void setWhite_x(int x){ white_x = x;}
