@@ -18,16 +18,16 @@ void Player::playerMovement(SDL_Keycode keyCode)
     switch (keyCode)
     {
         case SDLK_UP:
-          setPlayer_y(getPlayer_y() - 10);
+          setPlayer_y(getPlayer_y() - pixelSize);
           break;
         case SDLK_LEFT:
-          setPlayer_x(getPlayer_x() - 10);
+          setPlayer_x(getPlayer_x() - pixelSize);
           break;
         case SDLK_RIGHT:
-          setPlayer_x(getPlayer_x() + 10);
+          setPlayer_x(getPlayer_x() + pixelSize);
           break;
         case SDLK_DOWN:
-          setPlayer_y(getPlayer_y() + 10);
+          setPlayer_y(getPlayer_y() + pixelSize);
           break;
     }
 }

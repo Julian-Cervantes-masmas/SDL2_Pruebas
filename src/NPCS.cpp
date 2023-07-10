@@ -30,20 +30,20 @@ void NPC::whiteSquareMovement()
         switch (NPCposition(r))
         {
             case 0:
-                setWhite_x (getWhite_x() - 10);
-                setWhite_y (getWhite_y() - 10);
+                setWhite_x (getWhite_x() - pixelSize);
+                setWhite_y (getWhite_y() - pixelSize);
                 break;
             case 1:
-                setWhite_x (getWhite_x() + 10);
-                setWhite_y (getWhite_y() - 10);
+                setWhite_x (getWhite_x() + pixelSize);
+                setWhite_y (getWhite_y() - pixelSize);
                 break;
             case 2:
-                setWhite_x (getWhite_x() + 10);
-                setWhite_y (getWhite_y() + 10);
+                setWhite_x (getWhite_x() + pixelSize);
+                setWhite_y (getWhite_y() + pixelSize);
                 break;
             case 3:
-                setWhite_x (getWhite_x() - 10);
-                setWhite_y (getWhite_y() + 10);
+                setWhite_x (getWhite_x() - pixelSize);
+                setWhite_y (getWhite_y() + pixelSize);
                 break;
         }
 
