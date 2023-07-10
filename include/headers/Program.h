@@ -1,6 +1,7 @@
 #pragma once
 #include "Utils.h"
 #include "NPCS.h"
+#include "Player.h"
 
 class Program
 {
@@ -12,14 +13,15 @@ public:
     void Draw();
     void Close();
 
+
 private:
     SDL_Renderer* renderer = nullptr;
     SDL_Window* window = nullptr;
     bool programIsRunning = true;
     
-    const int pixelSize = 10;
     int blue_x = SCREEN_WIDTH / 2;
     int blue_y = SCREEN_HEIGHT / 2;
 
     NPC npc;
+    Player player;
 };

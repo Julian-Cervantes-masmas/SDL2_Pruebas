@@ -1,0 +1,12 @@
+https://www.parallelrealities.co.uk/tutorials/sdl1/intermediate/tutorial11.php
+https://www.parallelrealities.co.uk/tutorials/#tbs
+https://www.parallelrealities.co.uk/tutorials/#bad
+https://stackoverflow.com/questions/72208704/i-am-trying-to-generate-a-tile-map-from-a-text-file-with-an-arangement-of-1s-w
+https://cplusplus.com/forum/general/157557/
+https://github.com/connorkuehl/sdl2-tiled-example/blob/master/src/level.cpp
+https://gamedev.stackexchange.com/questions/177119/c-sdl22d-tilemap-with-every-tile-has-its-own-behavior
+
+//velocidad
+https://stackoverflow.com/questions/62955182/sdl-c-movement-time-and-acceleration
+https://gamedev.stackexchange.com/questions/127924/smooth-character-movement
+
