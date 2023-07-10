@@ -1,5 +1,12 @@
 #include "NPCS.h"
 
+void NPC::drawNPC(SDL_Renderer* renderer)
+{
+  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+  SDL_Rect whiteRect;
+  whiteRect = {getWhite_x(), getWhite_y(), pixelSize, pixelSize};
+  SDL_RenderFillRect (renderer, &whiteRect);
+}
 short int NPC::NPCposition(int randomNum)
 {
     std::random_device rd;

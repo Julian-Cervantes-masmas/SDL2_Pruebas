@@ -52,11 +52,8 @@ void Program::HandleEvents()
       switch (event.key.keysym.sym)
       {
       case SDLK_UP:
-        break;
       case SDLK_LEFT:
-        break;
       case SDLK_RIGHT:
-        break;
       case SDLK_DOWN:
         break;
       }
@@ -68,19 +65,7 @@ void Program::Update()
 {
 
     npc.whiteSquareMovement();
-    //Hacer que el rectangulo aparezca por el otro lado:
-    if ( player.getPlayer_x() > SCREEN_WIDTH){
-        player.setPlayer_x(0);
-    }
-    else if (player.getPlayer_x() < 0){
-        player.setPlayer_x(SCREEN_WIDTH);
-    }
-    else if ( player.getPlayer_y() > SCREEN_HEIGHT){
-       player.setPlayer_y(0);
-    }
-    else if (player.getPlayer_y() < 0){
-        player.setPlayer_y(SCREEN_HEIGHT);
-    }
+    player.playerPosition();
 
 }
 
@@ -89,17 +74,11 @@ void Program::Draw()
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
   SDL_RenderClear(renderer);
 
-  SDL_SetRenderDrawColor(renderer, 50, 50, 255, 255);
-
     /*      JUGADOR       */
   player.drawPlayer(renderer);
 
     /*      RECTANGULO BLANCO       */
-  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-  SDL_Rect whiteRect;
-  whiteRect = {npc.getWhite_x(), npc.getWhite_y(), pixelSize, pixelSize};
-  SDL_RenderFillRect (renderer, &whiteRect);
-
+  npc.drawNPC(renderer);
 
   SDL_RenderPresent(renderer);
 

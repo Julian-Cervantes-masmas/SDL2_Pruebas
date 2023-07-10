@@ -13,7 +13,6 @@ public:
     void Draw();
     void Close();
 
-    const int pixelSize = 10;
 
 private:
     SDL_Renderer* renderer = nullptr;
