@@ -24,6 +24,17 @@ void World::drawRectTree(SDL_Renderer *renderer, int x, int y)
     SDL_RenderFillRect (renderer, &tree);
 
 }
+void World::drawRectFloor(SDL_Renderer *renderer, int x, int y)
+{
+    SDL_SetRenderDrawColor (renderer, 95, 99, 82, 255); // Verde pasto
+    SDL_Rect floor;
+    floor.x = x;
+    floor.y = y;
+    floor.w = pixelSize;
+    floor.h = pixelSize;
+
+    SDL_RenderFillRect (renderer, &floor);
+}
 
 void World::drawWorld(SDL_Renderer* renderer, const std::vector<std::string>& worldData)
 {
@@ -42,6 +53,12 @@ void World::drawWorld(SDL_Renderer* renderer, const std::vector<std::string>& wo
                 int x = col * pixelSize;
                 int y = row * pixelSize;
                 drawRectTree(renderer, x, y);
+            }
+            else if (worldData[row][col] == '*')
+            {
+                int x = col * pixelSize;
+                int y = row * pixelSize;
+                drawRectFloor(renderer, x, y);
             }
         }
     }

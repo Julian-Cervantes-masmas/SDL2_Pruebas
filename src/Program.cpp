@@ -74,13 +74,13 @@ void Program::Draw()
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
   SDL_RenderClear(renderer);
 
-    /*      JUGADOR       */
-  player.drawPlayer(renderer);
-
-    /*      RECTANGULO BLANCO  (npc)*/
-  npc.drawNPC(renderer);
     /*        MAPA            */
   world.drawWorld(renderer, world.getWorldData());
+    /*      JUGADOR       */
+  player.drawPlayer(renderer);
+    /*      RECTANGULO BLANCO  (npc)*/
+  npc.drawNPC(renderer);
+
 
   SDL_RenderPresent(renderer);
 
