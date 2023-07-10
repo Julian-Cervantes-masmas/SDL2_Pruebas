@@ -19,8 +19,13 @@ bool Program::ProgramInit()
     SDL_Quit();
     return -1;
   }
+  tempSurface = IMG_Load("src/assets/player.png");
+  texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+  SDL_FreeSurface(tempSurface);
+
   return 0;
 }
+
 
 void Program::ProgramLoop()
 {
@@ -64,8 +69,8 @@ void Program::HandleEvents()
 void Program::Update()
 {
 
-    npc.whiteSquareMovement();
-    player.playerPosition();
+  npc.whiteSquareMovement();
+  player.playerPosition();    
 
 }
 
@@ -74,12 +79,13 @@ void Program::Draw()
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
   SDL_RenderClear(renderer);
 
-    /*  MAPA                    */
+    /*  MAPA       */
   world.drawWorld(renderer, world.getWorldData());
-    /*  JUGADOR                 */
-  player.drawPlayer(renderer);
-    /*  RECTANGULO BLANCO  (npc)*/
+    /*  JUGADOR    */
+  player.drawPlayer(renderer, texture);
+    /*  NPCs       */
   npc.drawNPC(renderer);
+  npc.drawNPC_chaser(renderer);
 
   SDL_RenderPresent(renderer);
 

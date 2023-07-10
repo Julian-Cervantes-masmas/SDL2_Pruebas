@@ -17,8 +17,11 @@ public:
 
 
 private:
+    SDL_Texture* texture = nullptr;
+    SDL_Surface* tempSurface = nullptr;
     SDL_Renderer* renderer = nullptr;
     SDL_Window* window = nullptr;
+
     bool programIsRunning = true;
     
     int blue_x = SCREEN_WIDTH / 2;

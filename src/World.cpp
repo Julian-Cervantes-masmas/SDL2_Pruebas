@@ -2,7 +2,7 @@
 
 void World::drawRectWall(SDL_Renderer *renderer, int x, int y)
 {
-    SDL_SetRenderDrawColor (renderer, 255, 95, 31, 255); // Naranja neon
+    SDL_SetRenderDrawColor (renderer, 255, 95, 31, 255); // Naranja neon 255, 95, 31, 255)
     SDL_Rect wall;
     wall.x = x;
     wall.y = y;
@@ -35,6 +35,28 @@ void World::drawRectFloor(SDL_Renderer *renderer, int x, int y)
 
     SDL_RenderFillRect (renderer, &floor);
 }
+void World::drawRectRoad(SDL_Renderer *renderer, int x, int y)
+{
+    SDL_SetRenderDrawColor (renderer, 85, 89, 72, 255); // Road
+    SDL_Rect road;
+    road.x = x;
+    road.y = y;
+    road.w = pixelSize;
+    road.h = pixelSize;
+
+    SDL_RenderFillRect (renderer, &road);
+}
+void World::drawRectInterior(SDL_Renderer *renderer, int x, int y)
+{
+    SDL_SetRenderDrawColor(renderer, 65, 69, 52, 255); // Pisos de interior
+    SDL_Rect interior;
+    interior.x = x;
+    interior.y = y;
+    interior.w = pixelSize;
+    interior.h = pixelSize;
+
+    SDL_RenderFillRect (renderer, &interior);
+}
 
 void World::drawWorld(SDL_Renderer* renderer, const std::vector<std::string>& worldData)
 {
@@ -60,16 +82,41 @@ void World::drawWorld(SDL_Renderer* renderer, const std::vector<std::string>& wo
                 int y = row * pixelSize;
                 drawRectFloor(renderer, x, y);
             }
+            else if (worldData[row][col] == '.')
+            {
+                int x = col * pixelSize;
+                int y = row * pixelSize;
+                drawRectRoad(renderer, x, y);
+            }
+            else if (worldData[row][col] == '_')
+            {
+                int x = col * pixelSize;
+                int y = row * pixelSize;
+                drawRectInterior(renderer, x, y);
+            }
         }
     }
 }
 void World::readWorld_txt()
 {
-    std::ifstream file("src/map.txt");
+    std::ifstream file("src/assets/map.txt");
     std::string line;
     while (std::getline(file, line))
     {
         worldData.push_back(line);
     }
     file.close();
+}
+
+bool World::wallPosition(int x, int y) const
+{
+    int row = y / pixelSize;
+    int col = x / pixelSize;
+
+    if (row >= 0 && row < worldData.size() && col >= 0 && col < worldData[row].length())
+    {
+        return worldData[row][col] == '0';
+    }
+    return false;
+
 }

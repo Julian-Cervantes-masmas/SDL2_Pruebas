@@ -7,6 +7,13 @@ void NPC::drawNPC(SDL_Renderer* renderer)
   whiteRect = {getWhite_x(), getWhite_y(), pixelSize, pixelSize};
   SDL_RenderFillRect (renderer, &whiteRect);
 }
+void NPC::drawNPC_chaser(SDL_Renderer* renderer)
+{
+    SDL_SetRenderDrawColor(renderer, 240, 240, 255, 255);
+    SDL_Rect redRect;
+    redRect = {getRed_x(), getRed_y(), pixelSize, pixelSize};
+    SDL_RenderFillRect (renderer, &redRect);
+}
 short int NPC::NPCposition(int randomNum)
 {
     std::random_device rd;
@@ -15,6 +22,10 @@ short int NPC::NPCposition(int randomNum)
 
     return randomNum = dist(gen);
 
+}
+void NPC::whiteChaser()
+{
+    
 }
 void NPC::whiteSquareMovement()
 {

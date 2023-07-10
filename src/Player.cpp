@@ -1,7 +1,7 @@
 #include "Program.h"
 Program program;
 
-void Player::drawPlayer(SDL_Renderer* renderer)
+void Player::drawPlayer(SDL_Renderer* renderer, SDL_Texture* texture)
 {
   SDL_SetRenderDrawColor(renderer, 50, 50, 255, 255);
   SDL_Rect pixelRect;
@@ -10,7 +10,8 @@ void Player::drawPlayer(SDL_Renderer* renderer)
   pixelRect.w = pixelSize; //Tamaño ancho (width)
   pixelRect.h = pixelSize; //Tamaño alto (height)
 
-  SDL_RenderFillRect(renderer, &pixelRect); //Dibuja el rectangulo
+  //SDL_RenderFillRect(renderer, &pixelRect); //Dibuja el rectangulo
+  SDL_RenderCopy(renderer, texture, NULL, &pixelRect); //Textura personaje
 }
 
 void Player::playerMovement(SDL_Keycode keyCode)
@@ -47,8 +48,4 @@ void Player::playerPosition()
         setPlayer_y(SCREEN_HEIGHT);
     }
 
-}
-void collidesWithWall()
-{
-    
 }

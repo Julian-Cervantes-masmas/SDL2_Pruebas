@@ -5,7 +5,9 @@ class NPC
 {
 public:
     void drawNPC(SDL_Renderer* renderer);
+    void drawNPC_chaser(SDL_Renderer* renderer);
     void whiteSquareMovement();
+    void whiteChaser();
     short int NPCposition(int randomNum);
     
 
@@ -15,10 +17,15 @@ public:
     void setWhite_y(int y){ white_y = y; }
     int getWhite_y() const{ return white_y;}
 
+    void setRed_x(int x){ red_x = x;}
+    int getRed_x() const { return red_x;}
+    void setRed_y(int y){ red_y = y; }
+    int getRed_y() const{ return red_y;}
+
 private:
-    //TODO: Change the values to make the start of the NPC random -> Usando el mismo codigo de NPC position
-    //Con los valores a generar entre 0 y SCREEN_HEIGHT para que sean por ejemplo valores entre (0, 720)p
-    //GetPosition SetPosition
     int white_x = SCREEN_WIDTH / 2;
     int white_y = SCREEN_HEIGHT / 2;
+
+    int red_x = SCREEN_WIDTH / 2;
+    int red_y = SCREEN_HEIGHT / 2;
 };
