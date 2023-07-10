@@ -1,7 +1,9 @@
 #pragma once
 #include "Utils.h"
+
 #include "NPCS.h"
 #include "Player.h"
+#include "World.h"
 
 class Program
 {
@@ -24,4 +26,5 @@ private:
 
     NPC npc;
     Player player;
+    World world;
 };
