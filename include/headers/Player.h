@@ -7,7 +7,8 @@ public:
     void drawPlayer(SDL_Renderer* renderer);
     void playerMovement(SDL_Keycode keyCode);
     void playerPosition();
-    
+    void collidesWithWall();
+
     //SETTERS AND GETTERS
     void setPlayer_x(int x){ player_x = x;}
     int getPlayer_x() const { return player_x;}

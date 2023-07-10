@@ -77,8 +77,10 @@ void Program::Draw()
     /*      JUGADOR       */
   player.drawPlayer(renderer);
 
-    /*      RECTANGULO BLANCO       */
+    /*      RECTANGULO BLANCO  (npc)*/
   npc.drawNPC(renderer);
+    /*        MAPA            */
+  world.drawWorld(renderer, world.getWorldData());
 
   SDL_RenderPresent(renderer);
 
