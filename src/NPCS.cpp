@@ -1,18 +1,22 @@
 #include "NPCS.h"
 
-void NPC::drawNPC(SDL_Renderer* renderer)
+void NPC::drawNPC(SDL_Renderer* renderer, SDL_Texture* textureNPC)
 {
-  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+  //SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); //Color del rectangulo
   SDL_Rect whiteRect;
   whiteRect = {getWhite_x(), getWhite_y(), pixelSize, pixelSize};
-  SDL_RenderFillRect (renderer, &whiteRect);
+
+  //SDL_RenderFillRect (renderer, &whiteRect); //Dibuja rectangulo
+  SDL_RenderCopy(renderer, textureNPC, NULL, &whiteRect);
 }
-void NPC::drawNPC_chaser(SDL_Renderer* renderer)
+void NPC::drawNPC_chaser(SDL_Renderer* renderer, SDL_Texture* textureNPC)
 {
-    SDL_SetRenderDrawColor(renderer, 240, 240, 255, 255);
+    //SDL_SetRenderDrawColor(renderer, 255, 50, 50, 255); //Color del rectangulo
     SDL_Rect redRect;
     redRect = {getRed_x(), getRed_y(), pixelSize, pixelSize};
-    SDL_RenderFillRect (renderer, &redRect);
+
+    //SDL_RenderFillRect (renderer, &redRect); // rectangulo
+    SDL_RenderCopy(renderer, textureNPC, NULL, &redRect);
 }
 short int NPC::NPCposition(int randomNum)
 {
