@@ -17,6 +17,7 @@ void Player::drawPlayer(SDL_Renderer* renderer, SDL_Texture* texture)
 void Player::playerMovement(SDL_Keycode keyCode)//
 {
     //TODO: Cambiar a SCANCODE en Cordoba. La libreria parece no funcionar en esta computadora.
+    //Ver como ajustar todo al DeltaTime 60fps
     switch (keyCode)
     {
         case SDLK_UP:
