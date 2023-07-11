@@ -3,7 +3,7 @@ Program program;
 
 void Player::drawPlayer(SDL_Renderer* renderer, SDL_Texture* texture)
 {
-  SDL_SetRenderDrawColor(renderer, 50, 50, 255, 255);
+  //SDL_SetRenderDrawColor(renderer, 50, 50, 255, 255); //Color del rectangulo
   SDL_Rect pixelRect;
   pixelRect.x = getPlayer_x();
   pixelRect.y = getPlayer_y();
@@ -16,7 +16,7 @@ void Player::drawPlayer(SDL_Renderer* renderer, SDL_Texture* texture)
 
 void Player::playerMovement(SDL_Keycode keyCode)//
 {
-
+    //TODO: Cambiar a SCANCODE en Cordoba. La libreria parece no funcionar en esta computadora.
     switch (keyCode)
     {
         case SDLK_UP:

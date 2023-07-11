@@ -60,16 +60,6 @@ void Program::HandleEvents()
           break;
       }
     }
-    else if(event.type == SDL_KEYUP){
-      switch (event.key.keysym.sym)
-      {
-      case SDLK_UP:
-      case SDLK_LEFT:
-      case SDLK_RIGHT:
-      case SDLK_DOWN:
-        break;
-      }
-    }
   }
 }
 
