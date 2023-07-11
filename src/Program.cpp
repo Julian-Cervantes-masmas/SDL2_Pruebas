@@ -20,10 +20,10 @@ bool Program::ProgramInit()
     SDL_Quit();
     return -1;
   }
-  tempSurface = IMG_Load("src/assets/player.png");
+  tempSurface = IMG_Load("assets/player.png");
   texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
   SDL_FreeSurface(tempSurface);
-  tempSurface = IMG_Load("src/assets/NPCwhite.png");
+  tempSurface = IMG_Load("assets/NPCwhite.png");
   textureNPC = SDL_CreateTextureFromSurface(renderer, tempSurface);
   SDL_FreeSurface(tempSurface);
 

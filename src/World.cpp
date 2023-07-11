@@ -64,31 +64,31 @@ void World::drawWorld(SDL_Renderer* renderer, const std::vector<std::string>& wo
     {
         for (int col = 0; col < worldData[row].length(); ++col)
         {
-            if (worldData[row][col] == '0')
+            if (worldData[row][col] == '0') //Pared
             {
                 int x = col * pixelSize;
                 int y = row * pixelSize;
                 drawRectWall(renderer, x, y);
             }
-            else if(worldData[row][col] == 'A')
+            else if(worldData[row][col] == 'A') //Arbol
             {
                 int x = col * pixelSize;
                 int y = row * pixelSize;
                 drawRectTree(renderer, x, y);
             }
-            else if (worldData[row][col] == '*')
+            else if (worldData[row][col] == '*')//Piso
             {
                 int x = col * pixelSize;
                 int y = row * pixelSize;
                 drawRectFloor(renderer, x, y);
             }
-            else if (worldData[row][col] == '.')
+            else if (worldData[row][col] == '.')//Camino
             {
                 int x = col * pixelSize;
                 int y = row * pixelSize;
                 drawRectRoad(renderer, x, y);
             }
-            else if (worldData[row][col] == '_')
+            else if (worldData[row][col] == '_')//Piso interior
             {
                 int x = col * pixelSize;
                 int y = row * pixelSize;
@@ -99,7 +99,7 @@ void World::drawWorld(SDL_Renderer* renderer, const std::vector<std::string>& wo
 }
 void World::readWorld_txt()
 {
-    std::ifstream file("src/assets/map.txt");
+    std::ifstream file("assets/map.txt");
     std::string line;
     while (std::getline(file, line))
     {
