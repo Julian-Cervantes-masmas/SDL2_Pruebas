@@ -14,21 +14,22 @@ void Player::drawPlayer(SDL_Renderer* renderer, SDL_Texture* texture)
   SDL_RenderCopy(renderer, texture, NULL, &pixelRect); //Textura personaje
 }
 
-void Player::playerMovement(SDL_Keycode keyCode)
+void Player::playerMovement(SDL_Keycode keyCode)//
 {
+
     switch (keyCode)
     {
         case SDLK_UP:
-          setPlayer_y(getPlayer_y() - pixelSize);
+          setPlayer_y(getPlayer_y() - player_speed);
           break;
         case SDLK_LEFT:
-          setPlayer_x(getPlayer_x() - pixelSize);
+          setPlayer_x(getPlayer_x() - player_speed);
           break;
         case SDLK_RIGHT:
-          setPlayer_x(getPlayer_x() + pixelSize);
+          setPlayer_x(getPlayer_x() + player_speed);
           break;
         case SDLK_DOWN:
-          setPlayer_y(getPlayer_y() + pixelSize);
+          setPlayer_y(getPlayer_y() + player_speed);
           break;
     }
 }
@@ -49,3 +50,4 @@ void Player::playerPosition()
     }
 
 }
+

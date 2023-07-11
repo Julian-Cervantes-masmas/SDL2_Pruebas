@@ -23,7 +23,7 @@ private:
     int player_y = SCREEN_HEIGHT / 2;
     int previous_x;
     int previous_y;
-    double player_speed = 0;
+    double player_speed = 4;
 
     const double max_acceleration = 3;
     const double min_aceleration = 0;

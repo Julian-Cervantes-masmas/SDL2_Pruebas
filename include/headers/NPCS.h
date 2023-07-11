@@ -4,8 +4,8 @@
 class NPC
 {
 public:
-    void drawNPC(SDL_Renderer* renderer);
-    void drawNPC_chaser(SDL_Renderer* renderer);
+    void drawNPC(SDL_Renderer* renderer, SDL_Texture* texture);
+    void drawNPC_chaser(SDL_Renderer* renderer, SDL_Texture* texture);
     void whiteSquareMovement();
     void whiteChaser();
     short int NPCposition(int randomNum);

@@ -1,6 +1,7 @@
 #include "Program.h"
 #include "NPCS.h"
 
+
 bool Program::ProgramInit()
 {
   SDL_Init(SDL_INIT_VIDEO);
@@ -22,6 +23,9 @@ bool Program::ProgramInit()
   tempSurface = IMG_Load("src/assets/player.png");
   texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
   SDL_FreeSurface(tempSurface);
+  tempSurface = IMG_Load("src/assets/NPCwhite.png");
+  textureNPC = SDL_CreateTextureFromSurface(renderer, tempSurface);
+  SDL_FreeSurface(tempSurface);
 
   return 0;
 }
@@ -38,6 +42,7 @@ void Program::ProgramLoop()
 
 void Program::HandleEvents()
 {
+
   /*  Event Handler  */
   SDL_Event event;
   while(SDL_PollEvent(&event)){
@@ -45,11 +50,13 @@ void Program::HandleEvents()
       programIsRunning = false;
     }
     else if (event.type == SDL_KEYDOWN){
-      player.playerMovement(event.key.keysym.sym);
       switch(event.key.keysym.sym)
       {
         case SDLK_ESCAPE:
           programIsRunning = false;
+          break;
+        default:
+          player.playerMovement(event.key.keysym.sym);
           break;
       }
     }
@@ -68,6 +75,7 @@ void Program::HandleEvents()
 
 void Program::Update()
 {
+  
 
   npc.whiteSquareMovement();
   player.playerPosition();    
@@ -84,15 +92,19 @@ void Program::Draw()
     /*  JUGADOR    */
   player.drawPlayer(renderer, texture);
     /*  NPCs       */
-  npc.drawNPC(renderer);
-  npc.drawNPC_chaser(renderer);
-
+  npc.drawNPC(renderer, textureNPC);
+  npc.drawNPC_chaser(renderer, textureNPC);
+  
+  /*  Renderiza */
   SDL_RenderPresent(renderer);
+
 
 }
 
 void Program::Close()
 {
+    SDL_DestroyTexture(texture);
+    SDL_DestroyTexture(textureNPC);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();

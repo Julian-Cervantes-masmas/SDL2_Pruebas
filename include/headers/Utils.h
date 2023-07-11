@@ -10,7 +10,9 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_scancode.h>
 
-const int pixelSize = 20; //10 default
-const int SCREEN_WIDTH = 1080;
-const int SCREEN_HEIGHT = 720;
+
+const int pixelSize = 32; //10 default - 20 good_size (1080x720) - 32 tamaño estandar(1728x1152)
+const int SCREEN_WIDTH = 1728;
+const int SCREEN_HEIGHT = 1152;

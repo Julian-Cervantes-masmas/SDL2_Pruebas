@@ -18,6 +18,8 @@ public:
 
 private:
     SDL_Texture* texture = nullptr;
+    SDL_Texture* textureNPC = nullptr;
+
     SDL_Surface* tempSurface = nullptr;
     SDL_Renderer* renderer = nullptr;
     SDL_Window* window = nullptr;
