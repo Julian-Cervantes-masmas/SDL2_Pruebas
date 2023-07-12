@@ -29,6 +29,7 @@ private:
     int blue_x = SCREEN_WIDTH / 2;
     int blue_y = SCREEN_HEIGHT / 2;
 
+
     NPC npc;
     Player player;
     World world;

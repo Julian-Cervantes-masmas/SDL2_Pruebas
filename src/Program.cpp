@@ -65,10 +65,8 @@ void Program::HandleEvents()
 
 void Program::Update()
 {
-  
-
   npc.whiteSquareMovement();
-  player.playerPosition();    
+  player.playerPosition();
 
 }
 

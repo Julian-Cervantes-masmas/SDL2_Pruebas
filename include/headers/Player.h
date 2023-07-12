@@ -8,6 +8,7 @@ public:
     void playerMovement();
     void playerPosition();
 
+
     //SETTERS AND GETTERS
     void setPlayer_x(int x){ player_x = x;}
     int getPlayer_x() const { return player_x;}
@@ -23,8 +24,10 @@ private:
     int player_y = SCREEN_HEIGHT / 2;
     int previous_x;
     int previous_y;
-    double player_speed = 8;
+    
+    float rotationAngle = 0.0f;
 
+    float player_speed = 8;
     const double max_acceleration = 3;
     const double min_aceleration = 0;
 

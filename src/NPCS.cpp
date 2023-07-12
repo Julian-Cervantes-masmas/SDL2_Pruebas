@@ -18,14 +18,10 @@ void NPC::drawNPC_chaser(SDL_Renderer* renderer, SDL_Texture* textureNPC)
     //SDL_RenderFillRect (renderer, &redRect); // rectangulo
     SDL_RenderCopy(renderer, textureNPC, NULL, &redRect);
 }
-short int NPC::NPCposition(int randomNum)
+short int NPC::NPCposition()
 {
-    std::random_device rd;
-    std::mt19937 gen(rd());
     std::uniform_int_distribution<short int> dist (0,3);
-
-    return randomNum = dist(gen);
-
+    return dist(gen);
 }
 void NPC::whiteChaser()
 {
@@ -41,8 +37,11 @@ void NPC::whiteSquareMovement()
     std::chrono::milliseconds timeElapsed = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - lastMoveTime);
     if(timeElapsed.count() >= 200){
         lastMoveTime = currentTime;
-        int r;
-        switch (NPCposition(r))
+
+        NPCpos = NPCposition();
+        std::cout << NPCpos;
+
+        switch (NPCpos)
         {
             case 0:
                 setWhite_x (getWhite_x() - pixelSize);

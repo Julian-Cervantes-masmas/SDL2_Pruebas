@@ -8,7 +8,7 @@ public:
     void drawNPC_chaser(SDL_Renderer* renderer, SDL_Texture* texture);
     void whiteSquareMovement();
     void whiteChaser();
-    short int NPCposition(int randomNum);
+    short int NPCposition();
     
 
     //SETTERS AND GETTERS
@@ -28,4 +28,9 @@ private:
 
     int red_x = SCREEN_WIDTH / 2;
     int red_y = SCREEN_HEIGHT / 2;
+
+    std::random_device rd;
+    std::mt19937 gen;
+    short int NPCpos;
+
 };
