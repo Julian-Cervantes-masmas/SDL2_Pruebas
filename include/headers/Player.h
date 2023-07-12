@@ -5,7 +5,7 @@ class Player
 {
 public:
     void drawPlayer(SDL_Renderer* renderer, SDL_Texture* texture);
-    void playerMovement(SDL_Keycode keyCode);
+    void playerMovement();
     void playerPosition();
 
     //SETTERS AND GETTERS

@@ -56,11 +56,11 @@ void Program::HandleEvents()
           programIsRunning = false;
           break;
         default:
-          player.playerMovement(event.key.keysym.sym);
           break;
       }
     }
   }
+  player.playerMovement();
 }
 
 void Program::Update()

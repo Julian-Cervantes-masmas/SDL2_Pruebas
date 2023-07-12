@@ -14,25 +14,25 @@ void Player::drawPlayer(SDL_Renderer* renderer, SDL_Texture* texture)
   SDL_RenderCopy(renderer, texture, NULL, &pixelRect); //Textura personaje
 }
 
-void Player::playerMovement(SDL_Keycode keyCode)//
+void Player::playerMovement()//
 {
-    //TODO: Cambiar a SCANCODE en Cordoba. La libreria parece no funcionar en esta computadora.
-    //Ver como ajustar todo al DeltaTime 60fps
-    switch (keyCode)
-    {
-        case SDLK_UP:
-          setPlayer_y(getPlayer_y() - player_speed);
-          break;
-        case SDLK_LEFT:
-          setPlayer_x(getPlayer_x() - player_speed);
-          break;
-        case SDLK_RIGHT:
-          setPlayer_x(getPlayer_x() + player_speed);
-          break;
-        case SDLK_DOWN:
-          setPlayer_y(getPlayer_y() + player_speed);
-          break;
-    }
+  const Uint8* keystates = SDL_GetKeyboardState(NULL);
+  if (keystates[SDL_SCANCODE_UP])
+  {
+    setPlayer_y(getPlayer_y() - player_speed);
+  }
+  else if (keystates[SDL_SCANCODE_LEFT])
+  {
+    setPlayer_x(getPlayer_x() - player_speed);
+  }
+  else if (keystates[SDL_SCANCODE_RIGHT])
+  {
+    setPlayer_x(getPlayer_x() + player_speed);
+  }
+  else if (keystates[SDL_SCANCODE_DOWN])
+  {
+    setPlayer_y(getPlayer_y() + player_speed);
+  }
 }
 void Player::playerPosition()
 {
